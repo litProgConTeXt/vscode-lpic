@@ -1,0 +1,25 @@
+{
+  "name": "lpic-vscode",
+  "displayName": "Literate Programming in ConTeXt",
+  "description": "Syntax highlighting for Literate Progarmming ng in ConTeXtext projects",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "lipc",
+      "aliases": ["LPiC", "LPiConTeXt", "lipc"],
+      "extensions": [".tex"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "lipc",
+      "scopeName": "source.lpic",
+      "path": "./syntaxes/lipc.tmLanguage.json"
+    }]
+  }
+}
