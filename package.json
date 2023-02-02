@@ -19,7 +19,7 @@
     "grammars": [{
       "language": "lipc",
       "scopeName": "source.lpic",
-      "path": "./syntaxes/lipc.tmLanguage.json"
+      "path": "./syntaxes/lpic.tmLanguage.json"
     }]
   }
 }

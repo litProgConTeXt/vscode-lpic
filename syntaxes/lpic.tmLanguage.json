@@ -1,30 +1,35 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "LPiConTeXt",
-	"firstLineMatch" : "^%% lpic",
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.lpic",
+  "name": "LPiConTeXt",
+  "fileTypes": ["tex"],
+  "firstLineMatch" : "^%% lpic",
   "foldingStartMarker": "\\\\(start.*|b(TABLE|TD|TR))",
   "foldingStopMarker": "\\\\(stop.*|e(TABLE|TD|TR))",
-	"patterns": [
-		{"include": "#inline-math"},
-		{"include": "#context-command"},
-		{"include": "#context-definition"},
-		{"include": "#context-section"},
-		{"include": "#context-parameters"},
-		{"include": "#context-braces"},
-		{"include": "#context-other-start-stop"},
-		{"include": "#comment-line"},
-		{"include": "#tex-macro"},
-		{"include": "#tex-italics"},
-		{"include": "#tex-bold"},
-		{"include": "#tex-bold-italics"},
-		{"include": "#metafun-code-block"},
-		{"include": "#lua-code-block"},
-		{"include": "#lua-code-inline"},
-		{"include": "#start-text"},
-		{"include": "#stop-text"}
-	],
-	"repository": {
-	  "inline-math" : {
+  "patterns": [ { "include": "#lpic" } ],
+  "repository": {
+    "lpic" : {
+      "patterns": [
+        {"include": "#inline-math"},
+        {"include": "#context-command"},
+        {"include": "#context-definition"},
+        {"include": "#context-section"},
+        {"include": "#context-parameters"},
+        {"include": "#context-braces"},
+        {"include": "#context-other-start-stop"},
+        {"include": "#comment-line"},
+        {"include": "#tex-macro"},
+        {"include": "#tex-italics"},
+        {"include": "#tex-bold"},
+        {"include": "#tex-bold-italics"},
+        {"include": "#metafun-code-block"},
+        {"include": "#lua-code-block"},
+        {"include": "#lua-code-inline"},
+        {"include": "#start-text"},
+        {"include": "#stop-text"}    
+      ]
+    },
+    "inline-math" : {
       "begin": "\\$",
       "beginCaptures": {
         "0": {
@@ -50,8 +55,8 @@
           "include": "$self"
         }
       ]
-	  },
-	  "context-commnd" : {
+    },
+    "context-commnd" : {
       "captures": {
 
         "1": {
@@ -60,8 +65,8 @@
       },
       "match": "(\\\\)[^a-zA-Z@]",
       "name": "constant.character.escape.tex"
-	  },
-	  "comment-line" : {
+    },
+    "comment-line" : {
       "captures": {
         "2": {
           "name": "punctuation.definition.comment.tex"
@@ -69,8 +74,8 @@
       },
       "match": "(%).*$\\n?",
       "name": "comment.line.percentage.tex"
-	  },
-	  "tex-italics" : {
+    },
+    "tex-italics" : {
       "begin": "(\\{\\\\it\\s+)",
       "captures": {
         "1": {
@@ -86,8 +91,8 @@
           "include": "text.tex.context"
         }
       ]
-	  },
-	  "tex-bold" : {
+    },
+    "tex-bold" : {
       "begin": "(\\{\\\\bf\\s+)",
       "captures": {
         "1": {
@@ -103,8 +108,8 @@
           "include": "text.tex.context"
         }
       ]
-	  },
-	  "tex-bold-italics" : {
+    },
+    "tex-bold-italics" : {
       "begin": "(\\{\\\\bi\\s+)",
       "captures": {
         "1": {
@@ -120,8 +125,8 @@
           "include": "text.tex.context"
         }
       ]
-	  },
-	  "context-section" : {
+    },
+    "context-section" : {
       "captures": {
         "1": {
           "name": "support.function.section.context"
@@ -132,8 +137,8 @@
       },
       "match": "(\\\\(?:part|title|chapter|(?:sub)*(?:section|subject)))\\s*(\\{.*?\\})",
       "name": "meta.function.section.context"
-	  },
-	  "metafun-code-block" : {
+    },
+    "metafun-code-block" : {
       "begin": "(\\\\start(unique|use|reusable)?MP)(code|inclusions|graphic)",
       "captures": {
         "0": {
@@ -147,8 +152,8 @@
           "include": "source.metafun"
         }
       ]
-	  },
-	  "lua-code-block" : {
+    },
+    "lua-code-block" : {
       "begin": "(\\\\startlua)",
       "captures": {
         "0": {
@@ -162,8 +167,8 @@
           "include": "source.lua"
         }
       ]
-	  },
-	  "lua-code-inline" : {
+    },
+    "lua-code-inline" : {
       "begin": "(\\\\ctxlua\\s*){",
       "captures": {
         "0": {
@@ -177,8 +182,8 @@
           "include": "source.lua"
         }
       ]
-	  },
-	  "start-text" : {
+    },
+    "start-text" : {
       "captures": {
         "0": {
           "name": "keyword.control.document.context"
@@ -186,8 +191,8 @@
       },
       "match": "\\\\starttext\\W",
       "name": "meta.context.starttext"
-	  },
-	  "stop-text" : {
+    },
+    "stop-text" : {
       "captures": {
         "0": {
           "name": "keyword.control.document.context"
@@ -195,8 +200,8 @@
       },
       "match": "\\\\stoptext\\W",
       "name": "meta.context.stoptext"
-	  },
-	  "context-parameters" : {
+    },
+    "context-parameters" : {
       "begin": "\\[",
       "beginCaptures": {
         "0": {
@@ -230,12 +235,12 @@
           "include": "text.tex.context"
         }
       ]
-	  },
-	  "context-braces" : {
+    },
+    "context-braces" : {
       "match": "[\\[\\]\\{\\}]",
       "name": "keyword.operator.braces.context"
-	  },
-	  "context-other-start-stop" : {
+    },
+    "context-other-start-stop" : {
       "begin": "(\\\\start)([a-zA-Z]+)",
       "captures": {
         "1": {
@@ -252,15 +257,14 @@
           "include": "text.tex.context"
         }
       ]
-	  },
-	  "context-definition" : {
+    },
+    "context-definition" : {
       "match": "(\\\\define[A-Za-z]*)(?![a-zA-Z])",
       "name": "storage.type.function.tex"
-	  },
-	  "tex-macro" : {
+    },
+    "tex-macro" : {
       "match": "(\\\\[A-Za-z]+)(?![a-zA-Z])",
       "name": "support.function.general.tex"
-	  }
-	},
-	"scopeName": "source.lpic"
+    }
+  }
 }
